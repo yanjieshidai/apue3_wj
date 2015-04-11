@@ -1,0 +1,10 @@
+set -e
+if [ $# != 1 ];then
+	echo "args is valid !"
+	exit 1
+fi
+file=$1
+mkdir -p target
+to_file=target/${file%.*}".jcc"
+#echo $to_file
+gcc $1 -o $to_file -lapue
